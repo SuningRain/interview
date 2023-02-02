@@ -16,6 +16,6 @@ describe('二叉树层序遍历-队列方式', () => {
   let t1 = new TreeNode(2)
   t.left = t1
   it('正常例子', () => {
-    expect(levelOrder(t)).toEqual([[1], [2]])
+    expect(levelOrder2(t)).toEqual([[1], [2]])
   })
 })

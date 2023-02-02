@@ -33,7 +33,9 @@ export function levelOrder2(root: TreeNode): number[][] {
   let res = []
   while (queue.length) {
     let rowData = []
-    for (const top of queue) {
+    const size = queue.length
+    for (let i = 0; i < size; i++) {
+      const top = queue.shift()
       rowData.push(top.val)
       if (top.left) {
         queue.push(top.left)
