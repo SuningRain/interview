@@ -9,6 +9,6 @@ export function myNew () {
   const args = Array.prototype.slice.call(arguments, 1)
   const obj = Object.create(null)
   obj.__proto__ = func.prototype
-  func.apply(obj, args)
-  return obj
+  const res = func.apply(obj, args)
+  return typeof res === 'object' ? res : obj
 }
