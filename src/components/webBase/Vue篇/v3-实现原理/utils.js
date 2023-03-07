@@ -1,0 +1,18 @@
+/**
+ * @author ZhangYu
+ * @create date 2023-03-06 10:52:58
+ * @modify date 2023-03-06 10:52:58
+ * @desc Vue 工具类
+ */
+
+export function isDef (value) {
+  return value !== undefined && value !== null
+}
+
+export function isUndef (value) {
+  return value === undefined || value === null
+}
+
+export function sameNode (aNode, bNode) {
+  return aNode.sel === bNode.sel && aNode.key === bNode.key
+}
