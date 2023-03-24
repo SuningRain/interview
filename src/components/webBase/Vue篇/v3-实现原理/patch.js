@@ -1,3 +1,10 @@
+/*
+ * @Descripttion:
+ * @Author: ZhangYu
+ * @Date: 2023-03-05 16:34:17
+ * @LastEditors: ZhangYu
+ * @LastEditTime: 2023-03-23 16:51:57
+ */
 /**
  * @author ZhangYu
  * @create date 2023-03-05 16:34:48
@@ -7,12 +14,7 @@
 import vNode from './vnode'
 import createElement from './createElement'
 import patchNode from './patchVnode'
-import { sameNode } from './utils'
-
-// 是否为vNode对象
-function isVnode (data) {
-  return !!data.sel
-}
+import { isVnode, sameNode } from './utils'
 
 
 /**
@@ -24,7 +26,7 @@ export default function patch (oldVnode, newVnode) {
   // 如果oldVnode不是vNode对象,说明此时是Element元素
   if (!isVnode(oldVnode)) {
     // 将Element转化为vNode
-    vNode(oldVnode.tagName.toLowercase(), {}, null, undefined, null)
+    oldVnode = vNode(oldVnode.tagName.toLowerCase(), {}, null, undefined, oldVnode)
   }
   // 节点相同
   if (sameNode(oldVnode, newVnode)) {

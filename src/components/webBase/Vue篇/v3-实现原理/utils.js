@@ -4,6 +4,10 @@
  * @modify date 2023-03-06 10:52:58
  * @desc Vue 工具类
  */
+// 判断一个参数是否是vNode对象
+export function isVnode (data) {
+  return typeof data === 'object' && data.hasOwnProperty('sel')
+}
 
 export function isDef (value) {
   return value !== undefined && value !== null

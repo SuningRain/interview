@@ -1,7 +1,7 @@
 /**
  * @author ZhangYu
  * @create date 2023-03-06 17:17:05
- * @modify date 2023-03-06 17:17:05
+ * @modify date 2023-03-23 17:27:08
  * @desc 比较两组children
  */
 import { isDef, isUndef, sameNode } from "./utils"
@@ -48,13 +48,13 @@ export default function updateChildren (parentNode, oldChl, newChl) {
       // 新前旧前
     } else if (sameNode(newStartVnode, oldStartVnode)) {
       patchVnode(oldStartVnode, newStartVnode)
-      newStartVnode = newStartVnode[++newStartIndex]
-      oldStartVnode = oldStartVnode[++oldStartIndex]
+      newStartVnode = newChl[++newStartIndex]
+      oldStartVnode = oldChl[++oldStartIndex]
       // 新后旧后
     } else if (sameNode(newEndVnode, oldEndVnode)) {
       patchVnode(oldEndVnode, newEndVnode)
-      newEndVnode = newEndVnode[--newEndIndex]
-      oldEndVnode = oldEndVnode[--oldEndIndex]
+      newEndVnode = newChl[--newEndIndex]
+      oldEndVnode = oldChl[--oldEndIndex]
       // 新后旧前
     } else if (sameNode(newEndVnode, oldStartVnode)) {
       patchVnode(oldStartVnode, newEndVnode)
@@ -75,7 +75,7 @@ export default function updateChildren (parentNode, oldChl, newChl) {
       // 如果定义了key，则从map中取，没有则遍历oldChl查找
       indexToOld = isDef(newStartVnode.key)
         ? keyToOldIndexMap[newStartVnode.key]
-        : _findIndexInOld(newStartV)
+        : _findIndexInOld(newStartVnode)
 
       // 找到了index
       if (isDef(indexToOld)) {
@@ -84,17 +84,17 @@ export default function updateChildren (parentNode, oldChl, newChl) {
         // 如果是相同节点，则进行移动
         if (sameNode(oldVNodeToMove, newStartVnode)) {
           patchVnode(oldVNodeToMove, newStartVnode)
-          parentNode.elm.insertBefore(oldVNodeToMove.elm, oldStartVnode.elm)
+          parentNode.insertBefore(oldVNodeToMove.elm, oldStartVnode.elm)
           oldChl[indexToOld] = undefined
         } else {
           // 如果不是相同节点，这种情况可能是key相同，但是tag不同，创建并插入
-          parentNode.elm.insertBefore(createElement(newChl[newStartIndex]), oldStartVnode.elm)
+          parentNode.insertBefore(createElement(newChl[newStartIndex]), oldStartVnode.elm)
         }
       } else {
         // 如果没有找到index，说明newStartVnode是全新的，需要创建并插入
-        parentNode.elm.insertBefore(createElement(newChl[newStartIndex]), oldStartVnode.elm)
+        parentNode.insertBefore(createElement(newChl[newStartIndex]), oldStartVnode.elm)
       }
-      newStartVnode = newStartVnode[++newStartIndex]
+      newStartVnode = newChl[++newStartIndex]
     }
   }
   // 如果新节点还有多余的节点未处理 则将多的节点插入到DOM中
@@ -103,13 +103,13 @@ export default function updateChildren (parentNode, oldChl, newChl) {
     const refElm = isDef(newChl[newEndIndex + 1]) ? null : newChl[newEndIndex + 1]
     for (let i = newStartIndex; i <= newEndIndex; i++) {
       // 新的多的vNode 没有进行patchVnode 此时还没有elm，需要调用newChl
-      parentNode.elm.insertBefore(createElement(newChl[i]), refElm)
+      parentNode.insertBefore(createElement(newChl[i]), refElm)
     }
   // 有多余的节点，将DOM中移除
   } else if (oldStartIndex <= oldEndIndex) {
     // 遍历oldCh删除
     for (let i = oldStartIndex; i <= oldEndIndex; i++) {
-      parentNode.elm.removeChild(oldChl[i])
+      parentNode.removeChild(oldChl[i].elm)
     }
   }
 }

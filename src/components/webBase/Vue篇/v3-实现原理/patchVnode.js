@@ -1,8 +1,9 @@
-/**
- * @author ZhangYu
- * @create date 2023-03-06 10:42:03
- * @modify date 2023-03-06 10:42:03
- * @desc patch 节点
+/*
+ * @Descripttion:
+ * @Author: ZhangYu
+ * @Date: 2023-03-06 10:39:08
+ * @LastEditors: ZhangYu
+ * @LastEditTime: 2023-03-23 17:26:22
  * 注意： 默认新node 存在 text 和 children 为 互斥条件
  */
 
@@ -39,6 +40,8 @@ export default function patchVnode (oldVnode, newVnode) {
       return
     } else {
       // elm 设置为新的text
+      // textContent 文本内容 撑出元素才会触发回流
+      // innerText 包含标签和样式，一定触发回流
       elm.textContent = newVnode.text
     }
   } else {

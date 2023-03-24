@@ -1,3 +1,10 @@
+<!--
+ * @Descripttion:
+ * @Author: ZhangYu
+ * @Date: 2022-09-27 15:59:15
+ * @LastEditors: ZhangYu
+ * @LastEditTime: 2023-03-22 18:04:20
+-->
 # interview
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -30,7 +37,7 @@ yarn
 ### Compile and Hot-Reload for Development
 
 ```sh
-yarn dev
+yarn serve
 ```
 
 ### Type-Check, Compile and Minify for Production

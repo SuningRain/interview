@@ -1,18 +1,20 @@
+/*
+ * @Descripttion:
+ * @Author: ZhangYu
+ * @Date: 2023-03-05 13:38:36
+ * @LastEditors: ZhangYu
+ * @LastEditTime: 2023-03-23 00:02:41
+ */
 /**
  * @author ZhangYu
  * @create date 2023-03-05 13:59:02
  * @desc 实现简单的h函数 => 对应Vue内部的_createElement函数
  */
 
-import { throwError } from 'element-plus/es/utils'
 import vNode from './vnode'
+import { isVnode } from './utils'
 
-// 判断一个参数是否是vNode对象
-function isVnode (data) {
-  return typeof data === 'object' && data.hasOwnProperty('sel')
-}
-
-export default function (sel, data, c) {
+export default function h (sel, data, c) {
   // 检查参数个数
   if (arguments.length !== 3) {
     throw new Error('参数个数有误')
@@ -25,8 +27,9 @@ export default function (sel, data, c) {
     let children = []
     for (let i = 0; i < c.length; i++) {
       if (!isVnode(c[i])) {
-        throwError(`第${i}个数组元素不是vNode`)
+        console.error(`第${i}个数组元素不是vNode`)
       }
+      children.push(c[i])
     }
     return vNode(sel, data, children, undefined, null)
   }
