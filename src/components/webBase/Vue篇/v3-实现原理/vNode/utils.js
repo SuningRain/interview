@@ -2,7 +2,7 @@
  * @author ZhangYu
  * @create date 2023-03-06 10:52:58
  * @modify date 2023-03-06 10:52:58
- * @desc Vue 工具类
+ * @desc Vue vNode工具类
  */
 // 判断一个参数是否是vNode对象
 export function isVnode (data) {

@@ -3,10 +3,10 @@
  * @Author: ZhangYu
  * @Date: 2023-03-22 21:16:19
  * @LastEditors: ZhangYu
- * @LastEditTime: 2023-03-23 17:25:29
+ * @LastEditTime: 2023-03-25 14:01:39
  */
-import h from '@/components/webBase/Vue篇/v3-实现原理/h.js'
-import patch from '@/components/webBase/Vue篇/v3-实现原理/patch.js'
+import h from '@/components/webBase/Vue篇/v3-实现原理/vNode/h.js'
+import patch from '@/components/webBase/Vue篇/v3-实现原理/vNode/patch.js'
 
 const container = document.getElementById('container')
 

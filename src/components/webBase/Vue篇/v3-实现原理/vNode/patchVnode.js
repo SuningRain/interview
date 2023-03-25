@@ -10,7 +10,6 @@
 import { isDef } from './utils'
 import createElement from './createElement'
 import updateChildren from './updateChildren'
-import { sameNode } from './utils'
 
 /**
  * 比对两个‘相同’的新旧节点

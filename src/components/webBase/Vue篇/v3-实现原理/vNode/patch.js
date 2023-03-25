@@ -1,14 +1,9 @@
 /*
- * @Descripttion:
+ * @Descripttion:path函数
  * @Author: ZhangYu
  * @Date: 2023-03-05 16:34:17
  * @LastEditors: ZhangYu
- * @LastEditTime: 2023-03-23 16:51:57
- */
-/**
- * @author ZhangYu
- * @create date 2023-03-05 16:34:48
- * @desc path函数
+ * @LastEditTime: 2023-03-25 14:02:09
  */
 
 import vNode from './vnode'
