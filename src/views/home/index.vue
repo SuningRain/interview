@@ -1,5 +1,5 @@
 /**
- * @Descripttion:
+ * @Descripttion: 主页面
  * @Author: ZhangYu
  * @Date: 2023-03-07 19:57:13
  * @LastEditors: ZhangYu
@@ -11,7 +11,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const vueCodeStudyList = ref([
-  { name: '响应式原理学习', path: '/vueCode/diff' },
+  { name: '响应式原理学习', path: '/vueCode/render' },
   { name: 'diff算法学习', path: '/vueCode/diff' }
 ])
 

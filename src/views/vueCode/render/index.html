@@ -1,0 +1,29 @@
+<!--
+ * @Descripttion: 测试自定义模板渲染，和数据响应式更新
+ * @Author: ZhangYu
+ * @Date: 2023-03-26 15:18:21
+ * @LastEditors: ZhangYu
+ * @LastEditTime: 2023-03-26 18:50:01
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <span>姓名：{{ name }}</span>
+    <input type="text" v-model="name"></input>
+    <span>更多：{{ more.like }}</span>
+    <input type="text" v-model="more.like"></input>
+  </div>
+  <button id="bt">改变张三</button>
+  <script type="module" src="./index.js"></script>
+</body>
+
+</html>
